@@ -78,10 +78,12 @@ class Example(Frame):
         new_img = self.cv_img[self.corners[0][1]/IMAGE_RESIZE_FACTOR:self.corners[1][1]/IMAGE_RESIZE_FACTOR, self.corners[0][0]/IMAGE_RESIZE_FACTOR:self.corners[1][0]/IMAGE_RESIZE_FACTOR]
         files = self.list_of_files[self.index].split("/")
         try:
-            os.stat(files[-2])
+            os.stat(POSITIVE_DIRECTORY+files[-2])
         except:
-            os.mkdir(files[-2])
+            os.mkdir(POSITIVE_DIRECTORY+files[-2])
+        print("saving to ", "{}{}/{}".format(POSITIVE_DIRECTORY, files[-2], files[-1]))
         cv2.imwrite("{}{}/{}".format(POSITIVE_DIRECTORY, files[-2], files[-1]), new_img)
+        self.saveNegatives(files)
         self.restart()
         self.loadImage()
         self.resetCanvas()
@@ -91,16 +93,21 @@ class Example(Frame):
         high_x = max(self.corners[0][0], self.corners[1][0])/IMAGE_RESIZE_FACTOR
         low_y = min(self.corners[0][1], self.corners[1][1])/IMAGE_RESIZE_FACTOR
         high_y = max(self.corners[0][1], self.corners[1][1])/IMAGE_RESIZE_FACTOR
+
+        try:
+            os.stat(NEGATIVE_DIRECTORY+files[-2])
+        except:
+            os.mkdir(NEGATIVE_DIRECTORY+files[-2])
         
         new_img = self.cv_img[ :low_y, :]
-        cv2.imwrite("{}{}/{}{}".format(NEGATIVE_DIRECTORY, files[-2], "LY", files[-1]))
+        cv2.imwrite("{}{}/{}{}".format(NEGATIVE_DIRECTORY, files[-2], "LY", files[-1]), new_img)
         new_img = self.cv_img[ high_y: , :]
-        cv2.imwrite("{}{}/{}{}".format(NEGATIVE_DIRECTORY, files[-2], "HY", files[-1]))
+        cv2.imwrite("{}{}/{}{}".format(NEGATIVE_DIRECTORY, files[-2], "HY", files[-1]), new_img)
 
         new_img = self.cv_img[ :, :low_x ]
-        cv2.imwrite("{}{}/{}{}".format(NEGATIVE_DIRECTORY, files[-2], "LX", files[-1]))
+        cv2.imwrite("{}{}/{}{}".format(NEGATIVE_DIRECTORY, files[-2], "LX", files[-1]), new_img)
         new_img = self.cv_img[:,  high_x: ]
-        cv2.imwrite("{}{}/{}{}".format(NEGATIVE_DIRECTORY, files[-2], "HX", files[-1]))
+        cv2.imwrite("{}{}/{}{}".format(NEGATIVE_DIRECTORY, files[-2], "HX", files[-1]), new_img)
        
         
     def restart(self):
