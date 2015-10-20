@@ -1,10 +1,10 @@
 This code was written to assist with selecting 'positive' regions of images to train an cascade image detector. To use a cascade image detector, you must first train the detector by closely cropping the 'positive' regions of a photograph to show the object of interest. The rest of the image may be used as a 'negative' training image. This GUI lets you combine both tasks. You simply draw a rectangle around the object of interest by selecting diagonal corners of a rectangle and click 'Next' to save these positive and negative images. All images are saved in their original size, though the image is presented resized according to a scaling factor you  may have a repository of photographs of an image you want to identify, but you need to crop those photographs to as close as possible to the item of interest. You can do that with this simple UGUI, set in `imageeditor.py`. Similarly, in this file you can set the directory to store the positive and negative images.
 
-Here's what the GUI looks like and what it will produce:
+Here's what the GUI looks like:
 
 ![ "data image"](https://github.com/sunnysideprodcorp/CascadeImagesorter/blob/master/sample-images/whale_tk.png)
 
-That will save the following images: 1 'positive' showing the item as cropped as you chose to make it:
+Use the `Reset` button to start the selection over with a given image. Use the `Next` button to indicate that selection is complete and images can be saved. That will save the following images: 1 'positive' showing the item as cropped as you chose to make it:
 
 ![ "data image"](https://github.com/sunnysideprodcorp/CascadeImagesorter/blob/master/sample-images/positive.jpg)
 
