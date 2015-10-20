@@ -6,10 +6,10 @@ from ttk import Frame, Button, Style
 import imagefeed
 import imagefilefeed
 
-IMAGE_DIRECTORY = "/home/aileen/whales/imgs/"
-POSITIVE_DIRECTORY = "/home/aileen/whales/tkinter/positive/"
-NEGATIVE_DIRECTORY = "/home/aileen/whales/tkinter/negative/"
-IMAGE_RESIZE_FACTOR = .2
+IMAGE_DIRECTORY = 
+POSITIVE_DIRECTORY = 
+NEGATIVE_DIRECTORY = 
+IMAGE_RESIZE_FACTOR =
 
 class ImageEditor(Frame):
     """class ImageEditor provides functionality to page through photos so that users can  select a portion 
