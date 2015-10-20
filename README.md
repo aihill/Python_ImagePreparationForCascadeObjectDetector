@@ -8,7 +8,7 @@ That will save the following images: 1 'positive' showing the item as cropped as
 
 ![ "data image"](https://github.com/sunnysideprodcorp/CascadeImagesorter/blob/master/sample-images/positive.jpg)
 
-and 4 'negative' images showing irrelevant background that does not contain an item of interest:
+and 4 'negative' images showing irrelevant background that does not contain an item of interest. These images are obtained by cutting out a left, right, top, and bottom rectangle relative to the 'positive' region, so as you see below, these 4 'negative' images will contain duplicate regions.
 
 ![ "data image"](https://github.com/sunnysideprodcorp/CascadeImagesorter/blob/master/sample-images/negative1.jpg)
 ![ "data image"](https://github.com/sunnysideprodcorp/CascadeImagesorter/blob/master/sample-images/negative2.jpg)
